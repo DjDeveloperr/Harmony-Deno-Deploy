@@ -1,6 +1,4 @@
-/// <reference path="./runtime.d.ts"/>
-
-import { Client, Interaction, slash, } from 'https://raw.githubusercontent.com/DjDeveloperr/harmony/slash/mod.ts';
+import { Client, Interaction, InteractionResponseType, InteractionType, slash, } from 'https://raw.githubusercontent.com/DjDeveloperr/harmony/slash/mod.ts';
 
 class MySlashBot extends Client {
   constructor() {
@@ -17,8 +15,8 @@ class MySlashBot extends Client {
     ])
   }
 
-  @slash()
-  run(d: Interaction) {
+  @slash('ping')
+  pingCmd(d: Interaction) {
     d.reply('Pong!', { flags: 1 << 6 })
   }
 }
@@ -28,5 +26,8 @@ const client = new MySlashBot()
 addEventListener("fetch", async (event) => {
   const d = await client.slash.verifyFetchEvent(event)
   if (d === false) event.respondWith(new Response(null, { status: 400 }))
-  else client.emit('interactionCreate', d)
+  else {
+    if (d.type === InteractionType.PING) d.respond({ type: InteractionResponseType.PONG })
+    else client.emit('interactionCreate', d)
+  }
 })
