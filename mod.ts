@@ -1,4 +1,4 @@
-import { Client, Interaction, InteractionResponseType, InteractionType, slash, } from 'https://raw.githubusercontent.com/DjDeveloperr/harmony/slash/mod.ts';
+import { Client, Interaction, InteractionResponseType, InteractionType, slash, } from './deps.ts';
 
 class MySlashBot extends Client {
   constructor() {
