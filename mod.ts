@@ -28,5 +28,5 @@ const client = new MySlashBot()
 addEventListener("fetch", async (event) => {
   const d = await client.slash.verifyFetchEvent(event)
   if (d === false) event.respondWith(new Response(null, { status: 400 }))
-  else client.emit('interactionCreate')
+  else client.emit('interactionCreate', d)
 })
