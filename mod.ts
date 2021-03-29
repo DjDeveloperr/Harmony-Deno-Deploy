@@ -1,4 +1,3 @@
-import "./polyfill.js";
 import { Client, Interaction, InteractionResponseType, InteractionType, slash, } from 'https://raw.githubusercontent.com/DjDeveloperr/harmony/slash/mod.ts';
 
 class MySlashBot extends Client {
