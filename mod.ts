@@ -7,12 +7,12 @@ class MySlashBot extends Client {
     })
 
     this.slash.publicKey = Deno.env.get("PUBLIC_KEY");
-    // this.slash.commands.bulkEdit([
-    //   {
-    //     name: 'ping',
-    //     description: 'Just ping!',
-    //   }
-    // ])
+    this.slash.commands.bulkEdit([
+      {
+        name: 'ping',
+        description: 'Just ping!',
+      }
+    ])
   }
 
   @slash('ping')
@@ -25,7 +25,7 @@ const client = new MySlashBot()
 
 addEventListener("fetch", async (event) => {
   try {
-    const d = await client.slash.verifyFetchEvent(event)
+    const d = await client.slash.verifyFetchEvent({ request: event.request, respondWith: (...args: any[]) => { event.respondWith(...args); } })
     if (d === false) event.respondWith(new Response(null, { status: 400 }))
     else {
       if (d.type === InteractionType.PING) d.respond({ type: InteractionResponseType.PONG })
