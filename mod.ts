@@ -7,12 +7,12 @@ class MySlashBot extends Client {
     })
 
     this.slash.publicKey = Deno.env.get("PUBLIC_KEY");
-    this.slash.commands.bulkEdit([
-      {
-        name: 'ping',
-        description: 'Just ping!',
-      }
-    ])
+    // this.slash.commands.bulkEdit([
+    //   {
+    //     name: 'ping',
+    //     description: 'Just ping!',
+    //   }
+    // ])
   }
 
   @slash('ping')
