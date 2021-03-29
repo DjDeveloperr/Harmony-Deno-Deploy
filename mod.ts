@@ -24,10 +24,14 @@ class MySlashBot extends Client {
 const client = new MySlashBot()
 
 addEventListener("fetch", async (event) => {
-  const d = await client.slash.verifyFetchEvent(event)
-  if (d === false) event.respondWith(new Response(null, { status: 400 }))
-  else {
-    if (d.type === InteractionType.PING) d.respond({ type: InteractionResponseType.PONG })
-    else client.emit('interactionCreate', d)
+  try {
+    const d = await client.slash.verifyFetchEvent(event)
+    if (d === false) event.respondWith(new Response(null, { status: 400 }))
+    else {
+      if (d.type === InteractionType.PING) d.respond({ type: InteractionResponseType.PONG })
+      else client.emit('interactionCreate', d)
+    }
+  } catch (e) {
+    event.respondWith(new Response(e.stack, { status: 500 }))
   }
 })
