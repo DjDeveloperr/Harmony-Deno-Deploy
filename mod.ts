@@ -17,7 +17,7 @@ slash.handle('ping', (d) => {
   d.reply('Pong!', { ephemeral: true })
 })
 
-slash.handle('deferred-ping', (d) => {
+slash.handle('deferred', (d) => {
   d.defer(true).then((d) => {
     // setTimeout(() => {
     d.reply('Pong!')
