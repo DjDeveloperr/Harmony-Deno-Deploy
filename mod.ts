@@ -9,20 +9,9 @@ slash.commands.bulkEdit([
     name: 'ping',
     description: 'Just pong!',
   },
-  {
-    name: 'deferred',
-    description: 'Test deferred response.',
-  },
 ])
 
 slash.handle('ping', (d) => {
+  console.log("ping cmd")
   d.reply('Pong!', { ephemeral: true })
-})
-
-slash.handle('deferred', (d) => {
-  d.defer(true).then((d) => {
-    // setTimeout(() => {
-    d.reply('Pong!')
-    // }, 1000)
-  })
 })
