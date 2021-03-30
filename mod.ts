@@ -2,6 +2,8 @@ import * as slash from 'https://raw.githubusercontent.com/DjDeveloperr/harmony/s
 
 slash.init({ env: true })
 
+slash.client.on('interactionError', console.log)
+
 slash.commands.bulkEdit([
   {
     name: 'ping',
