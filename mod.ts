@@ -2,6 +2,17 @@ import * as slash from 'https://raw.githubusercontent.com/DjDeveloperr/harmony/s
 
 slash.init({ env: true })
 
+slash.commands.bulkEdit([
+  {
+    name: 'ping',
+    description: 'Just ping!',
+  },
+  {
+    name: 'deferred',
+    description: 'Test deferred response.',
+  },
+])
+
 slash.handle('ping', (d) => {
   d.reply('Pong!', { ephemeral: true })
 })
