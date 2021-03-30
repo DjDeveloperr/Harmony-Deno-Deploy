@@ -17,10 +17,10 @@ slash.handle('ping', (d) => {
   d.reply('Pong!', { ephemeral: true })
 })
 
-slash.handle('deferred', (d) => {
+slash.handle('deferred-ping', (d) => {
   d.defer(true).then((d) => {
-    setTimeout(() => {
-      d.reply('Test works!')
-    }, 1000)
+    // setTimeout(() => {
+    d.reply('Pong!')
+    // }, 1000)
   })
 })
