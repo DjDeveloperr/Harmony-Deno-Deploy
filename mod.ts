@@ -2,35 +2,35 @@ import * as slash from 'https://raw.githubusercontent.com/DjDeveloperr/harmony/s
 
 slash.init({ env: true })
 
-slash.commands.bulkEdit([
-  {
-    name: 'ping',
-    description: 'Just ping!'
-  },
-  {
-    name: 'test',
-    description: 'Test Command',
-    options: [
-      {
-        type: slash.SlashCommandOptionType.SUB_COMMAND_GROUP,
-        name: 'group',
-        description: 'Test Command Group',
-        options: [
-          {
-            name: 'cmd',
-            description: 'Test sub command',
-            type: slash.SlashCommandOptionType.SUB_COMMAND,
-          }
-        ]
-      },
-      {
-        name: 'cmd',
-        description: 'Test sub command',
-        type: slash.SlashCommandOptionType.SUB_COMMAND,
-      }
-    ]
-  }
-])
+// slash.commands.bulkEdit([
+//   {
+//     name: 'ping',
+//     description: 'Just ping!'
+//   },
+//   {
+//     name: 'test',
+//     description: 'Test Command',
+//     options: [
+//       {
+//         type: slash.SlashCommandOptionType.SUB_COMMAND_GROUP,
+//         name: 'group',
+//         description: 'Test Command Group',
+//         options: [
+//           {
+//             name: 'cmd',
+//             description: 'Test sub command',
+//             type: slash.SlashCommandOptionType.SUB_COMMAND,
+//           }
+//         ]
+//       },
+//       {
+//         name: 'cmd',
+//         description: 'Test sub command',
+//         type: slash.SlashCommandOptionType.SUB_COMMAND,
+//       }
+//     ]
+//   }
+// ])
 
 slash.handle('ping', (d) => {
   d.reply('Pong!', { ephemeral: true })
